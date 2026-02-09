@@ -11,6 +11,7 @@ export const colors = {
   vibrantPink: '#DB004D',
   darkGray: '#0A0A0A',
   black: '#000000',
+  headerGray: '#6D6D6D',
 
   // Semantic Colors
   background: 'var(--color-light-grayish-pink)',
@@ -30,6 +31,7 @@ export const colorVariables = {
   vibrantPink: 'var(--color-vibrant-pink)',
   darkGray: 'var(--color-dark-gray)',
   black: 'var(--color-black)',
+  headerGray: 'var(--color-header-gray)',
   background: 'var(--background)',
   foreground: 'var(--foreground)',
   primary: 'var(--primary)',

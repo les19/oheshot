@@ -2,8 +2,9 @@
 
 /* Font Face Declarations */
 @font-face {
-  font-family: 'Roboto Flex';
-  src: url('/fonts/roboto/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf') format('truetype-variations');
+  font-family: "Roboto Flex";
+  src: url("/fonts/roboto/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf")
+    format("truetype-variations");
   font-weight: 100 1000;
   font-stretch: 75% 100%;
   font-style: normal;
@@ -11,9 +12,10 @@
 }
 
 @font-face {
-  font-family: 'NKDuy Mono';
-  src: url('/fonts/nkduy/NKDuyMono-SemiBold.woff2') format('woff2'),
-       url('/fonts/nkduy/NKDuyMono-SemiBold.ttf') format('truetype');
+  font-family: "NKDuy Mono";
+  src:
+    url("/fonts/nkduy/NKDuyMono-SemiBold.woff2") format("woff2"),
+    url("/fonts/nkduy/NKDuyMono-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -21,12 +23,13 @@
 
 :root {
   /* UI Kit Color Palette */
-  --color-light-grayish-pink: #E7E0E0;
-  --color-pale-pink: #E0A9AD;
-  --color-vibrant-pink: #DB004D;
-  --color-dark-gray: #0A0A0A;
+  --color-light-grayish-pink: #e7e0e0;
+  --color-pale-pink: #e0a9ad;
+  --color-vibrant-pink: #db004d;
+  --color-dark-gray: #0a0a0a;
   --color-black: #000000;
-  
+  --color-header-gray: #6d6d6d;
+
   /* Semantic color mappings */
   --background: var(--color-light-grayish-pink);
   --foreground: var(--color-black);
@@ -34,12 +37,12 @@
   --primary-light: var(--color-pale-pink);
   --surface: var(--color-light-grayish-pink);
   --surface-dark: var(--color-dark-gray);
-  --error: #EF4444;
+  --error: #ef4444;
   --border-light: rgba(255, 255, 255, 0.2);
-  
+
   /* Font families */
-  --font-roboto: 'Roboto Flex', sans-serif;
-  --font-nkduy: 'NKDuy Mono', monospace;
+  --font-roboto: "Roboto Flex", sans-serif;
+  --font-nkduy: "NKDuy Mono", monospace;
 }
 
 @theme inline {
@@ -52,22 +55,23 @@
   --color-surface-dark: var(--surface-dark);
   --color-error: var(--error);
   --color-border-light: var(--border-light);
-  
+
   /* Direct UI kit colors - use as bg-light-grayish-pink, text-vibrant-pink, etc. */
-  --color-light-grayish-pink: #E7E0E0;
-  --color-pale-pink: #E0A9AD;
-  --color-vibrant-pink: #DB004D;
-  --color-dark-gray: #0A0A0A;
+  --color-light-grayish-pink: #e7e0e0;
+  --color-pale-pink: #e0a9ad;
+  --color-vibrant-pink: #db004d;
+  --color-dark-gray: #0a0a0a;
   --color-black: #000000;
-  
+  --color-header-gray: #6d6d6d;
+
   /* Font variables */
   --font-sans: var(--font-roboto);
   --font-mono: var(--font-nkduy);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-black);
+  color: var(--color-white, #ffffff);
   font-family: var(--font-roboto);
 }
 
@@ -77,7 +81,10 @@ body {
 /* Use for primary headings like "BUTCHER" */
 .font-display {
   font-family: var(--font-roboto);
-  font-variation-settings: 'wdth' 100, 'wght' 600, 'XOPQ' 96;
+  font-variation-settings:
+    "wdth" 100,
+    "wght" 600,
+    "XOPQ" 96;
   font-weight: 600;
 }
 
@@ -85,7 +92,10 @@ body {
 /* Use for body text and paragraphs */
 .font-body {
   font-family: var(--font-roboto);
-  font-variation-settings: 'wdth' 110, 'wght' 410, 'XOPQ' 96;
+  font-variation-settings:
+    "wdth" 110,
+    "wght" 410,
+    "XOPQ" 96;
   font-weight: 410;
 }
 
@@ -100,9 +110,9 @@ body {
 /* Use for special emphasized text like "LIGHT HEAVYWEIGHT" */
 .font-nkduy {
   font-family: var(--font-nkduy);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  /* font-weight: 600; */
+  /* letter-spacing: 0.05em; */
+  /* text-transform: uppercase; */
 }
 
 /* Default Roboto Flex */

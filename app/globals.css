@@ -34,6 +34,8 @@
   --primary-light: var(--color-pale-pink);
   --surface: var(--color-light-grayish-pink);
   --surface-dark: var(--color-dark-gray);
+  --error: #EF4444;
+  --border-light: rgba(255, 255, 255, 0.2);
   
   /* Font families */
   --font-roboto: 'Roboto Flex', sans-serif;
@@ -48,6 +50,8 @@
   --color-primary-light: var(--primary-light);
   --color-surface: var(--surface);
   --color-surface-dark: var(--surface-dark);
+  --color-error: var(--error);
+  --color-border-light: var(--border-light);
   
   /* Direct UI kit colors - use as bg-light-grayish-pink, text-vibrant-pink, etc. */
   --color-light-grayish-pink: #E7E0E0;

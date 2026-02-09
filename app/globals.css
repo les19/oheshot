@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/* Font Face Declarations */
+@font-face {
+  font-family: 'Roboto Flex';
+  src: url('/fonts/roboto/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf') format('truetype-variations');
+  font-weight: 100 1000;
+  font-stretch: 75% 100%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NKDuy Mono';
+  src: url('/fonts/nkduy/NKDuyMono-SemiBold.woff2') format('woff2'),
+       url('/fonts/nkduy/NKDuyMono-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* UI Kit Color Palette */
+  --color-light-grayish-pink: #E7E0E0;
+  --color-pale-pink: #E0A9AD;
+  --color-vibrant-pink: #DB004D;
+  --color-dark-gray: #0A0A0A;
+  --color-black: #000000;
+  
+  /* Semantic color mappings */
+  --background: var(--color-light-grayish-pink);
+  --foreground: var(--color-black);
+  --primary: var(--color-vibrant-pink);
+  --primary-light: var(--color-pale-pink);
+  --surface: var(--color-light-grayish-pink);
+  --surface-dark: var(--color-dark-gray);
+  
+  /* Font families */
+  --font-roboto: 'Roboto Flex', sans-serif;
+  --font-nkduy: 'NKDuy Mono', monospace;
+}
+
+@theme inline {
+  /* Tailwind color variables - accessible as bg-*, text-*, border-*, etc. */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-surface: var(--surface);
+  --color-surface-dark: var(--surface-dark);
+  
+  /* Direct UI kit colors - use as bg-light-grayish-pink, text-vibrant-pink, etc. */
+  --color-light-grayish-pink: #E7E0E0;
+  --color-pale-pink: #E0A9AD;
+  --color-vibrant-pink: #DB004D;
+  --color-dark-gray: #0A0A0A;
+  --color-black: #000000;
+  
+  /* Font variables */
+  --font-sans: var(--font-roboto);
+  --font-mono: var(--font-nkduy);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-roboto);
+}
+
+/* UI Kit Typography Styles */
+
+/* Display/Heading Style: Width:100, Weight:600, XOPQ:96 */
+/* Use for primary headings like "BUTCHER" */
+.font-display {
+  font-family: var(--font-roboto);
+  font-variation-settings: 'wdth' 100, 'wght' 600, 'XOPQ' 96;
+  font-weight: 600;
+}
+
+/* Body Text Style: Width:110, Weight:410, XOPQ:96 */
+/* Use for body text and paragraphs */
+.font-body {
+  font-family: var(--font-roboto);
+  font-variation-settings: 'wdth' 110, 'wght' 410, 'XOPQ' 96;
+  font-weight: 410;
+}
+
+/* Semibold Style (for secondary headings) */
+/* Use for secondary headings like "IVAN MARCHENKO" */
+.font-semibold {
+  font-family: var(--font-roboto);
+  font-weight: 600;
+}
+
+/* NKDuy Mono Semibold (for special headings) */
+/* Use for special emphasized text like "LIGHT HEAVYWEIGHT" */
+.font-nkduy {
+  font-family: var(--font-nkduy);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Default Roboto Flex */
+.font-roboto {
+  font-family: var(--font-roboto);
+}

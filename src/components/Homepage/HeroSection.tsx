@@ -21,24 +21,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
   const t = useTranslations('HomePage');
 
   return (
-    <div className={cn('relative w-full min-h-screen flex flex-col', className)}>
+    <div className={cn('flex relative flex-col w-full min-h-screen', className)}>
       {/* Main Content Area */}
       <div className="w-full max-w-[1640px] mx-auto  relative min-h-[1000px]">
         {/* Grid Layout */}
-        <div className="flex gap-4 h-full ">
+        <div className="flex gap-4 h-full">
           {/* Left Column */}
           <div className=" z-20 max-w-[23%] flex flex-col justify-between items-start h-full min-h-[500px] mt-15">
-            <h2 className="text-white text-lg lg:text-2xl font-bold">
+            <h2 className="text-lg font-bold text-white lg:text-2xl">
               {t('heroSection.subtext')}
             </h2>
-            <div className="flex items-center justify-center w-full">
-              <MoveDown className="w-6 h-6 lg:w-8 lg:h-8 text-primary-pink " strokeWidth={2} />
+            <div className="flex justify-center items-center w-full">
+              <MoveDown className="w-6 h-6 lg:w-8 lg:h-8 text-primary-pink" strokeWidth={2} />
             </div>
-            <div className="flex flex-col gap-1 ">
-              <p className="text-white text-sm lg:text-base font-bold font-nkduy uppercase tracking-wide ">
+            <div className="flex flex-col gap-1">
+              <p className="text-sm font-bold tracking-wide text-white uppercase lg:text-base font-nkduy">
                 {t('title')}
               </p>
-              <p className="text-white text-sm lg:text-base font-bold font-nkduy uppercase tracking-wide ">
+              <p className="text-sm font-bold tracking-wide text-white uppercase lg:text-base font-nkduy">
                 {t('heroSection.subtitle')}
               </p>
               <p className="text-white text-sm lg:text-base font-bold font-nkduy uppercase tracking-wide pl-[110px] ">
@@ -48,7 +48,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
           </div>
 
           {/* Center Column - Graphic */}
-          <div className="w-full relative z-1 w-full">
+          <div className="relative w-full z-1">
             <Image
               src="/images/hero-icon.svg"
               alt="Hero Icon"
@@ -57,15 +57,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               className="w-full h-auto"
               priority
             />
-            {/* <div
-          className="z-10 absolute top-[323.99px] left-1/2 w-full max-w-[953.08px] aspect-[953/272] -translate-x-1/2 rotate-[351.5deg] rounded-full"
-          style={{
-            background: 'linear-gradient(to right, #E7E0E0 0%, #E0A9AD 0%, #DD004D, #000000)',
-            filter: 'blur(250px)',
-          }}
-        /> */}
+            <div
+              className="z-10 absolute top-[323.99px] left-1/2 w-full max-w-[953.08px] aspect-[953/272] -translate-x-1/2 rotate-[351.5deg] rounded-full"
+              style={{
+                background: 'linear-gradient(to right, #E7E0E0 0%, #E0A9AD 0%, #DD004D, #000000)',
+                filter: 'blur(250px)',
+              }}
+            />
             {/* for now like that, then will see */}
-            <Image
+            {/* <Image
               src="/images/Ellipse.png"
               alt="Ellipse background"
               width={953}
@@ -75,22 +75,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
                 width: '953.08px',
                 height: '272.23px',
               }}
-            />
+            /> */}
           </div>
 
           {/* Right Column */}
           <div className="z-20 max-w-[20%] flex flex-col justify-between items-start h-full min-h-[500px] mt-15">
             <div className="flex flex-col gap-3">
-              <p className="text-white text-base lg:text-md font-body leading-relaxed">
+              <p className="text-base leading-relaxed text-white lg:text-md font-body">
                 {t('heroSection.subtext2')}
               </p>
-              <p className="text-white text-base lg:text-md font-body leading-relaxed">
+              <p className="text-base leading-relaxed text-white lg:text-md font-body">
                 {t('heroSection.subtext3')}
               </p>
             </div>
 
             {/* Icons */}
-            <div className="flex items-center gap-4 ">
+            <div className="flex gap-4 items-center">
               <Image
                 src="/icons/logoP.svg"
                 alt="Cross icon"
@@ -105,7 +105,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
                 height={23}
                 className="w-6 h-6 lg:w-8 lg:h-8"
               />
-              <span className="font-nkduy text-md rounded-full bg-primary-pink w-8 h-8 flex items-center justify-center font-bold text-black">
+              <span className="flex justify-center items-center w-8 h-8 font-bold text-black rounded-full font-nkduy text-md bg-primary-pink">
                 1
               </span>
             </div>

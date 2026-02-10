@@ -21,7 +21,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
   const t = useTranslations('HomePage');
 
   return (
-    <div className={cn('flex relative flex-col w-full min-h-screen', className)}>
+    <div className={cn('flex relative flex-col w-full', className)}>
       {/* Main Content Area */}
       <div className="w-full max-w-[1640px] mx-auto  relative min-h-[1000px]">
         {/* Grid Layout */}
@@ -132,10 +132,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
           </div>
         </div>
       </div>
-      <div className='h-[1000px]'>
-        potom
-      </div>
-
     </div >
   );
 };

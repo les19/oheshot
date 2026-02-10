@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link as IntlLink, usePathname } from '@/i18n/navigation';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface HeaderProps {
   className?: string;
@@ -21,11 +21,12 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ className }) => {
   const locale = useLocale();
   const pathname = usePathname();
+  const t = useTranslations('HomePage');
 
   const navLinks = [
-    { href: '#about', label: 'ПРО НАС' },
-    { href: '#rules', label: 'ПРАВИЛА' },
-    { href: '#contacts', label: 'КОНТАКТИ' },
+    { href: '#about', label: t('navigation.about') },
+    { href: '#rules', label: t('navigation.rules') },
+    { href: '#contacts', label: t('navigation.contacts') },
   ];
 
   return (
@@ -39,7 +40,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
       {/* Logo */}
       <div className="flex flex-col items-center gap-1">
         <Image
-          src="/icons/logo.svg"
+          src="/icons/logoW.svg"
           alt="ONESHOT Logo"
           width={37}
           height={38}
@@ -54,7 +55,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
           <Link
             key={link.href}
             href={link.href}
-            className="text-[#6D6D6D] font-semibold hover:text-primary-pink-hover active:text-primary-pink-active transition-colors"
+            className="text-header-gray font-semibold hover:text-primary-pink-hover active:text-primary-pink-active transition-colors"
           >
             {link.label}
           </Link>
@@ -64,14 +65,14 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
       {/* Right Side: Language Switcher + CTA Button */}
       <div className="flex items-center gap-4 lg:gap-6">
         {/* Language Switcher */}
-        <div className="flex items-center gap-1 text-[#6D6D6D] font-semibold text-sm lg:text-base">
+        <div className="flex items-center gap-1 text-header-gray font-semibold text-sm lg:text-base">
           <IntlLink
             href={pathname}
             locale="uk"
             className={cn(
               "transition-colors",
-              locale === 'uk' 
-                ? "font-bold text-primary-pink active:text-primary-pink-active" 
+              locale === 'uk'
+                ? "font-bold text-primary-pink active:text-primary-pink-active"
                 : "font-normal hover:text-primary-pink-hover active:text-primary-pink-active"
             )}
           >
@@ -83,8 +84,8 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
             locale="en"
             className={cn(
               "transition-colors",
-              locale === 'en' 
-                ? "font-bold text-primary-pink active:text-primary-pink-active" 
+              locale === 'en'
+                ? "font-bold text-primary-pink active:text-primary-pink-active"
                 : "font-normal hover:text-primary-pink-hover active:text-primary-pink-active"
             )}
           >
@@ -94,7 +95,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
 
         {/* CTA Button */}
         <Button variant="primary" className="whitespace-nowrap text-sm lg:text-base px-4 lg:px-6">
-          СТАТИ УЧАСНИКОМ
+          {t('cta.join')}
         </Button>
       </div>
     </header>

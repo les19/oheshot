@@ -1,5 +1,20 @@
 {
   "HomePage": {
-    "title": "Hello world!"
+    "title": "ONESHOT",
+    "navigation": {
+      "about": "ABOUT US",
+      "rules": "THE RULES",
+      "contacts": "CONTACT US"
+    },
+    "cta": {
+      "join": "JOIN ONESHOT"
+    },
+    "heroSection": {
+      "subtext": "This is tension from the first second — a movement that holds your gaze and a moment where everything is decided at once.",
+      "subtext2": "Everything here is simple and brutal: two teams of fighters, one tournament, one winner. No pauses, no excuses, and no second chances.",
+      "subtext3": "The cameras capture not a show, but reality, not words, but character and consequences.",
+      "subtitle": "UKRAINIAN MEDIA LEAGUE",
+      "subtitle2": "DRIVEN BY ACTION"
+    }
   }
 }

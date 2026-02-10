@@ -26,6 +26,8 @@
   --color-light-grayish-pink: #e7e0e0;
   --color-pale-pink: #e0a9ad;
   --color-vibrant-pink: #db004d;
+  --color-vibrant-pink-hover: #ae0344;
+  --color-vibrant-pink-active: #940741;
   --color-dark-gray: #0a0a0a;
   --color-black: #000000;
   --color-header-gray: #6d6d6d;
@@ -60,9 +62,16 @@
   --color-light-grayish-pink: #e7e0e0;
   --color-pale-pink: #e0a9ad;
   --color-vibrant-pink: #db004d;
+  --color-vibrant-pink-hover: #ae0344;
+  --color-vibrant-pink-active: #940741;
   --color-dark-gray: #0a0a0a;
   --color-black: #000000;
   --color-header-gray: #6d6d6d;
+
+  /* Primary pink color variants - use as text-primary-pink, hover:text-primary-pink-hover, etc. */
+  --color-primary-pink: #db004d;
+  --color-primary-pink-hover: #ae0344;
+  --color-primary-pink-active: #940741;
 
   /* Font variables */
   --font-sans: var(--font-roboto);

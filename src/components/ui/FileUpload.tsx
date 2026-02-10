@@ -83,7 +83,7 @@ export const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>(
             className="hidden"
             {...props}
           />
-          
+
           {isLoading ? (
             <>
               <Loader2 className="h-5 w-5 animate-spin text-white" />

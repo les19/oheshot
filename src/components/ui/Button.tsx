@@ -31,23 +31,23 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       primary: cn(
-        'px-6 py-3 bg-vibrant-pink text-white',
-        'hover:bg-[#C70045] hover:border hover:border-[#A6003A]',
-        'active:bg-[#A6003A] active:border active:border-[#85002E]',
+        'px-6 py-3 bg-primary-pink text-white',
+        'hover:bg-primary-pink-hover hover:border hover:border-primary-pink-hover',
+        'active:bg-primary-pink-active active:border active:border-primary-pink-active',
         'border border-transparent',
         baseClasses
       ),
       secondary: cn(
-        'w-10 h-10 bg-dark-gray border border-vibrant-pink',
+        'w-10 h-10 bg-dark-gray border border-primary-pink',
         'flex items-center justify-center p-0',
-        'hover:bg-[#1A1A1A]',
-        'active:bg-[#0F0F0F]',
+        'hover:bg-[#1A1A1A] hover:border-primary-pink-hover',
+        'active:bg-[#0F0F0F] active:border-primary-pink-active',
         baseClasses
       ),
       text: cn(
         'px-0 py-2 text-white bg-transparent border-none',
-        'hover:text-vibrant-pink',
-        'active:text-[#C70045] active:border active:border-dashed active:border-[#C70045] active:px-2 active:py-1',
+        'hover:text-primary-pink-hover',
+        'active:text-primary-pink-active active:border active:border-dashed active:border-primary-pink-active active:px-2 active:py-1',
         baseClasses
       ),
     };

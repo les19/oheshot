@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from "next-intl/server";
 
 const robotoFlex = localFont({
   src: "../public/fonts/roboto/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf",
@@ -31,17 +33,23 @@ export const metadata: Metadata = {
   description: "Ukrainian media league built on action",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
+  params: Promise<{ locale: string }>;
   children: React.ReactNode;
 }>) {
+  const { locale } = await params;
+  const messages = await getMessages();
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${robotoFlex.variable} ${nkduyMono.variable} antialiased`}
       >
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

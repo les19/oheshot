@@ -3,6 +3,7 @@ import { Header } from '@/components/layout/Header';
 import { HeroSection } from '@/components/Homepage/HeroSection';
 import { AboutSection } from '@/components/Homepage/AboutSection';
 import { CtaSection } from '@/components/Homepage/CtaSection';
+import { RulesSection } from '@/components/Homepage/RulesSection';
 
 export default function Home() {
   return (
@@ -12,6 +13,8 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <CtaSection />
+        <RulesSection />
+        <AboutSection />
       </main>
     </MainLayout>
   );

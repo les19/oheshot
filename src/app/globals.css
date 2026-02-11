@@ -31,6 +31,9 @@
   --color-dark-gray: #0a0a0a;
   --color-black: #000000;
   --color-header-gray: #6d6d6d;
+  --color-secondary-dark: #0a0a0a;
+  --color-secondary-gray: #b0b0b0;
+  --color-divider: #232323;
 
   /* Semantic color mappings */
   --background: var(--color-light-grayish-pink);
@@ -72,6 +75,11 @@
   --color-primary-pink: #db004d;
   --color-primary-pink-hover: #ae0344;
   --color-primary-pink-active: #940741;
+
+  /* Secondary colors */
+  --color-secondary-dark: #0a0a0a;
+  --color-secondary-gray: #b0b0b0;
+  --color-divider: #232323;
 
   /* Font variables */
   --font-sans: var(--font-roboto);

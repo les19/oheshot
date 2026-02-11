@@ -36,6 +36,19 @@
       "label": "THE RULES FOR PARTICIPANTS",
       "headline": "THIS FORMAT IS FOR THOSE WHO FEEL THE RHYTHM, UNDERSTAND THE VALUE OF THE MOMENT, AND WANT TO SEE WHAT'S REAL",
       "button": "SHOW THE RULES"
+    },
+    "rulesModal": {
+      "title": "THE RULES FOR PARTICIPANTS",
+      "rule1": "A slap league fight is conducted in a format of up to five rounds, in which athletes take turns delivering one open-hand strike to the opponent's face. Victory is awarded by knockout, technical knockout, or judges' decision. A draw is possible only in exceptional cases.",
+      "rule2": "During the shot, the attacking athlete must maintain a fixed stance, must not step or jump and must keep one foot on the designated line or platform. The receiving athlete must stand upright, must not evade the strike, must not cover the face with the hands, and must not make intentional movements of the neck.",
+      "rule3": "A valid shot is one delivered with an open palm making clean contact with the palm surface to the permitted facial area, without the use of fingers, fist, elbow, or shoulder. Double shots and any additional contact are prohibited.",
+      "rule4": "Strikes to the ear, temple or back of the head are strictly prohibited, as well as scratching, grabbing, striking with a fist or the edge of the palm and any attempt to alter the trajectory of the shot after the swing has begun.",
+      "rule5": "For a rules violation the athlete receives a warning. A repeated violation results in a penalty or loss of the round. A third violation or any serious infraction leads to disqualification. In cases of particularly dangerous conduct, immediate disqualification may be imposed.",
+      "rule6": "If after a shot an athlete loses balance, falls or becomes disoriented, a knockdown is recorded and up to thirty seconds are given for recovery. Inability to continue the fight is considered a technical knockout, while complete loss of consciousness is considered a knockout.",
+      "rule7": "Judging is based on the power and cleanliness of the shot, the opponent's reaction and the level of control and stability demonstrated by the athlete. At the conclusion of the rounds, the judges determine the winner or record a technical outcome.",
+      "rule8": "Medical supervision is mandatory and includes a pre-match medical examination, the presence of a physician at the stage, and the authority of medical staff to stop the fight at any time. After a knockout, an athlete may participate in fight only with medical clearance.",
+      "rule9": "Permitted equipment includes mouthguards and recommended groin protection. Gloves, wraps, pads or any devices intended to enhance the impact of a shot are strictly prohibited.",
+      "rule10": "Athlete conduct is governed by a media code that prohibits fights and physical contact outside of the round, insults based on nationality or personal characteristics and aggression toward staff. Trash talk before the fight, emotional reactions after a shot, and show elements are permitted within the league's regulations."
     }
   }
 }

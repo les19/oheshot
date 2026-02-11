@@ -37,7 +37,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ##env example
 
+```bash
 NEXT_PUBLIC_FORM_WEBHOOK_URL=https://webhook.site/90206661-ae35-4ea5-b0e7-db806bdc82ba
 NEXT_PUBLIC_INSTAGRAM_URL=https://www.instagram.com/oneshot.official/
 NEXT_PUBLIC_TELEGRAM_URL=https://t.me/oneshot_official
 NEXT_PUBLIC_EMAIL_URL=mailto:info@oneshot.com
+```

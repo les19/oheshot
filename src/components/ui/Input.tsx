@@ -17,7 +17,7 @@ export interface InputProps
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, error, label, type = 'text', ...props }, ref) => {
     return (
-      <div className="w-full">
+      <div className="relative w-full pb-5">
         {label && (
           <label className="mb-2 block text-sm font-semibold text-white">
             {label}
@@ -27,24 +27,19 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           type={type}
           className={cn(
             'w-full rounded-lg bg-dark-gray border px-4 py-3 font-body text-white',
-            'placeholder:text-gray-400',
+            'placeholder:text-secondary-gray',
             'transition-all duration-200',
-            'focus:outline-none',
-            // Default state: light gray border
-            'border-gray-400',
-            // Hover state: pink border
-            'hover:border-vibrant-pink',
-            // Focus state: pink border
-            'focus:border-vibrant-pink focus:ring-0',
-            // Error state: red border
-            error && 'border-error',
+            'focus:outline-none focus:ring-0',
+            error
+              ? 'border-error hover:border-error focus:border-error'
+              : 'border-divider hover:border-primary-pink focus:border-primary-pink',
             className
           )}
           ref={ref}
           {...props}
         />
         {error && (
-          <p className="mt-2 text-sm text-error font-body">
+          <p className="absolute bottom-0 left-0 text-xs text-error font-body truncate max-w-full">
             {error}
           </p>
         )}

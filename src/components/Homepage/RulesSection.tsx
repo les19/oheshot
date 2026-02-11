@@ -28,9 +28,9 @@ export const RulesSection: React.FC<RulesSectionProps> = ({ className }) => {
     <>
       <section
         id="rules"
-        className={cn('relative w-full', className)}
+        className={cn('relative py-40 w-full', className)}
       >
-        <div className="relative w-full mx-auto aspect-[1640/415]">
+        <div className="relative w-full mx-auto aspect-[1640/415] ">
           <Image
             src="/images/rules.png"
             alt=""

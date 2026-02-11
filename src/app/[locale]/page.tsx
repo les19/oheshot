@@ -4,6 +4,7 @@ import { HeroSection } from '@/components/Homepage/HeroSection';
 import { AboutSection } from '@/components/Homepage/AboutSection';
 import { CtaSection } from '@/components/Homepage/CtaSection';
 import { RulesSection } from '@/components/Homepage/RulesSection';
+import { ContactFormSection } from '@/components/Homepage/ContactFormSection';
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
         <AboutSection />
         <CtaSection />
         <RulesSection />
-        <AboutSection />
+        <ContactFormSection />
       </main>
     </MainLayout>
   );

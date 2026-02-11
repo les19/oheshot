@@ -7,6 +7,10 @@ export interface FileUploadProps
   onFileSelect?: (file: File | null) => void;
   label?: string;
   accept?: string;
+  placeholder?: string;
+  error?: string;
+  maxSize?: number;
+  onClientError?: (msg: string) => void;
 }
 
 /**
@@ -16,23 +20,49 @@ export interface FileUploadProps
  * - Loading: Spinning icon with "Loading" text
  * - Attached: File name displayed with remove button (X icon)
  */
+const DEFAULT_MAX_SIZE = 3 * 1024 * 1024; // 3 MB
+
 export const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>(
-  ({ className, onFileSelect, label, accept, ...props }, ref) => {
+  ({ className, onFileSelect, label, accept, placeholder, error, maxSize, onClientError, ...props }, ref) => {
     const [file, setFile] = useState<File | null>(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [clientError, setClientError] = useState<string | null>(null);
     const inputRef = useRef<HTMLInputElement>(null);
+    const limit = maxSize ?? DEFAULT_MAX_SIZE;
 
     const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
       const selectedFile = e.target.files?.[0];
-      if (selectedFile) {
-        setIsLoading(true);
-        // Simulate file processing
-        setTimeout(() => {
-          setFile(selectedFile);
-          setIsLoading(false);
-          onFileSelect?.(selectedFile);
-        }, 1000);
+      if (!selectedFile) return;
+
+      // Client-side size check
+      if (selectedFile.size > limit) {
+        const msg = `File too large (max ${Math.round(limit / 1024 / 1024)}MB)`;
+        setClientError(msg);
+        onClientError?.(msg);
+        if (inputRef.current) inputRef.current.value = '';
+        return;
       }
+
+      // Client-side extension check
+      const ext = selectedFile.name.split('.').pop()?.toLowerCase() ?? '';
+      const safeExtensions = accept
+        ? accept.split(',').map((s) => s.trim().replace('.', '').toLowerCase())
+        : [];
+      if (safeExtensions.length > 0 && !safeExtensions.includes(ext)) {
+        const msg = `Unsupported file type (.${ext})`;
+        setClientError(msg);
+        onClientError?.(msg);
+        if (inputRef.current) inputRef.current.value = '';
+        return;
+      }
+
+      setClientError(null);
+      setIsLoading(true);
+      setTimeout(() => {
+        setFile(selectedFile);
+        setIsLoading(false);
+        onFileSelect?.(selectedFile);
+      }, 500);
     };
 
     const handleRemove = () => {
@@ -48,7 +78,7 @@ export const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>(
     };
 
     return (
-      <div className="w-full">
+      <div className="relative w-full pb-5">
         {label && (
           <label className="mb-2 block text-sm font-semibold text-white">
             {label}
@@ -61,10 +91,9 @@ export const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>(
             'cursor-pointer transition-all duration-200',
             'flex items-center gap-3',
             'focus-within:outline-none focus-within:ring-0',
-            // Default state: light gray border
-            'border-gray-400 text-gray-400',
-            // Hover state: pink border and text
-            'hover:border-vibrant-pink hover:text-vibrant-pink',
+            (error || clientError)
+              ? 'border-error text-gray-400'
+              : 'border-gray-400 text-gray-400 hover:border-vibrant-pink hover:text-vibrant-pink',
             className
           )}
         >
@@ -98,7 +127,7 @@ export const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>(
                   e.stopPropagation();
                   handleRemove();
                 }}
-                className="ml-auto h-6 w-6 flex items-center justify-center rounded bg-dark-gray hover:bg-[#1A1A1A] text-white transition-colors"
+                className="ml-auto h-6 w-6 flex items-center justify-center rounded bg-dark-gray hover:bg-dark-gray/80 text-white transition-colors"
                 type="button"
               >
                 <X className="h-4 w-4" />
@@ -107,10 +136,15 @@ export const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>(
           ) : (
             <>
               <Paperclip className="h-5 w-5" />
-              <span className="font-body">Додати резюме</span>
+              <span className="font-body">{placeholder ?? 'Upload file'}</span>
             </>
           )}
         </div>
+        {(clientError || error) && (
+          <p className="absolute bottom-0 left-0 text-xs text-error font-body truncate max-w-full">
+            {clientError || error}
+          </p>
+        )}
       </div>
     );
   }

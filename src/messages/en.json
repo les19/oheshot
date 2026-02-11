@@ -49,6 +49,54 @@
       "rule8": "Medical supervision is mandatory and includes a pre-match medical examination, the presence of a physician at the stage, and the authority of medical staff to stop the fight at any time. After a knockout, an athlete may participate in fight only with medical clearance.",
       "rule9": "Permitted equipment includes mouthguards and recommended groin protection. Gloves, wraps, pads or any devices intended to enhance the impact of a shot are strictly prohibited.",
       "rule10": "Athlete conduct is governed by a media code that prohibits fights and physical contact outside of the round, insults based on nationality or personal characteristics and aggression toward staff. Trash talk before the fight, emotional reactions after a shot, and show elements are permitted within the league's regulations."
+    },
+    "contactForm": {
+      "label": "APPLICATION & PARTNERSHIP FORM",
+      "headline": "READY TO JOIN? LET'S GET IN TOUCH",
+      "tabParticipants": "FOR PARTICIPANTS",
+      "tabSponsors": "FOR SPONSORS",
+      "submit": "SEND APPLICATION",
+      "participant": {
+        "section1": "CONTACT INFORMATION",
+        "name": "Your name",
+        "location": "Your location",
+        "phone": "+38 (999) 999 99 99",
+        "email": "Your email",
+        "social": "Your social media links",
+        "section2": "PERSONAL INFORMATION",
+        "height": "Your height",
+        "weight": "Your weight",
+        "skills": "Your athletic skills and achievements",
+        "about": "Tell us about yourself and why you would be a good candidate",
+        "section3": "DOCUMENTS",
+        "resume": "Upload resume",
+        "medical": "Upload medical certificate"
+      },
+      "sponsor": {
+        "section1": "CONTACT INFORMATION",
+        "company": "Company name",
+        "phone": "+38 (999) 999 99 99",
+        "email": "Your email",
+        "description": "Tell us a short description of your offer"
+      },
+      "successSent": "SENT SUCCESSFULLY",
+      "validation": {
+        "required": "This field is required",
+        "minLength": "Minimum {min} characters",
+        "maxLength": "Maximum {max} characters",
+        "invalidEmail": "Invalid email format",
+        "invalidPhone": "Invalid phone format",
+        "numericOnly": "Numbers only",
+        "fileRequired": "File is required",
+        "fileTooLarge": "File is too large (max {max}MB)",
+        "invalidFileType": "Unsupported file type (pdf, doc, docx, txt, rtf only)",
+        "dangerousContent": "Input contains prohibited characters"
+      }
+    },
+    "successModal": {
+      "title": "FORM SENT",
+      "text": "We will review your information and get in touch with you.",
+      "button": "CLOSE"
     }
   }
 }

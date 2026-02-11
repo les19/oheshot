@@ -23,7 +23,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
       id="about"
       className={cn('relative w-full', className)}
     >
-      <div className="w-full max-w-[1640px] mx-auto px-4 py-24 lg:py-32">
+      <div className="w-full max-w-[1640px] mx-auto px-4 pt-24 ">
         {/* Top area: headline + description */}
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-20">
           {/* Left — label + headline */}
@@ -48,7 +48,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
         <div className="relative mt-10 min-h-[100px]">
           {/* Pink gradient spot — reused from HeroSection */}
           <div
-            className="scale-80 pointer-events-none absolute bottom-0 left-1/2 w-full max-w-[953.08px] aspect-[953/272] -translate-x-1/2 translate-y-1/3 rounded-full"
+            className="scale-60 pointer-events-none absolute bottom-10 left-1/2 w-full max-w-[953.08px] aspect-[953/272] -translate-x-1/2 translate-y-1/3 rounded-full"
             style={{
               background:
                 'linear-gradient(to right, #E7E0E0 0%, #E0A9AD 0%, #DD004D, #000000)',

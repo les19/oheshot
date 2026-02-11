@@ -2,6 +2,7 @@ import { MainLayout } from '@/components/layout/MainLayout';
 import { Header } from '@/components/layout/Header';
 import { HeroSection } from '@/components/Homepage/HeroSection';
 import { AboutSection } from '@/components/Homepage/AboutSection';
+import { CtaSection } from '@/components/Homepage/CtaSection';
 
 export default function Home() {
   return (
@@ -9,6 +10,8 @@ export default function Home() {
       <Header />
       <main className="flex flex-col gap-20">
         <HeroSection />
+        <AboutSection />
+        <CtaSection />
         <AboutSection />
       </main>
     </MainLayout>

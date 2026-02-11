@@ -32,22 +32,21 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const variants = {
       primary: cn(
         'px-6 py-3 bg-primary-pink text-white',
-        'hover:bg-primary-pink-hover hover:border hover:border-primary-pink-hover',
-        'active:bg-primary-pink-active active:border active:border-primary-pink-active',
-        'border border-transparent',
+        'hover:bg-primary-pink-hover',
+        'active:bg-primary-pink-active',
         baseClasses
       ),
       secondary: cn(
         'w-10 h-10 bg-dark-gray border border-primary-pink',
         'flex items-center justify-center p-0',
-        'hover:bg-[#1A1A1A] hover:border-primary-pink-hover',
-        'active:bg-[#0F0F0F] active:border-primary-pink-active',
+        'hover:bg-dark-gray/80 hover:border-primary-pink-hover',
+        'active:bg-dark-gray/60 active:border-primary-pink-active',
         baseClasses
       ),
       text: cn(
-        'px-0 py-2 text-white bg-transparent border-none',
+        'px-0 py-2 text-white bg-transparent',
         'hover:text-primary-pink-hover',
-        'active:text-primary-pink-active active:border active:border-dashed active:border-primary-pink-active active:px-2 active:py-1',
+        'active:text-primary-pink-active',
         baseClasses
       ),
     };

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
@@ -74,9 +75,11 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ className }) => {
           <p className="text-2xl font-semibold leading-normal text-white/80">
             {t('ctaSection.description')}
           </p>
-          <Button variant="primary" className="px-6 py-3 mt-[15%] text-base font-semibold">
-            {t('cta.join')}
-          </Button>
+          <Link href="#contacts">
+            <Button variant="primary" className="px-6 py-3 mt-[15%] text-base font-semibold">
+              {t('cta.join')}
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

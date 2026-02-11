@@ -94,9 +94,11 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
         </div>
 
         {/* CTA Button */}
-        <Button variant="primary" className="whitespace-nowrap text-sm lg:text-base px-4 lg:px-6">
-          {t('cta.join')}
-        </Button>
+        <Link href="#contacts">
+          <Button variant="primary" className="whitespace-nowrap text-sm lg:text-base px-4 lg:px-6">
+            {t('cta.join')}
+          </Button>
+        </Link>
       </div>
     </header>
   );

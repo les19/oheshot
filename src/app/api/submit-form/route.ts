@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const WEBHOOK_URL =
-  process.env.FORM_WEBHOOK_URL ??
-  'https://webhook.site/90206661-ae35-4ea5-b0e7-db806bdc82ba';
+const WEBHOOK_URL = process.env.NEXT_PUBLIC_FORM_WEBHOOK_URL ?? '';
 
 export async function POST(req: NextRequest) {
   try {

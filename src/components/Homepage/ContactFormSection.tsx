@@ -68,7 +68,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
       )}
     >
       {/* Cube decorations */}
-      <div className="absolute top-0 right-[5%] w-full max-w-[636px] h-full pointer-events-none select-none z-0">
+      <div className="absolute top-[15%] right-[5%] w-full max-w-[636px] h-full pointer-events-none select-none z-0">
         <Image
           src="/images/cube2.svg"
           alt=""
@@ -78,7 +78,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
           aria-hidden="true"
         />
       </div>
-      <div className="absolute bottom-0 left-[5%] w-full max-w-[678px] h-full pointer-events-none select-none z-0">
+      <div className="absolute bottom-[17%] left-[5%] w-full max-w-[678px] h-full pointer-events-none select-none z-0">
         <Image
           src="/images/cube1.svg"
           alt=""

@@ -111,8 +111,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             </div>
           </div>
         </div>
-        <div className="absolute inset-x-0 bottom-[80px] z-10 pointer-events-none ">
-          <div className="mx-auto w-full max-w-[1860px] translate-y-[18%] flex items-end justify-start">
+        <div className="absolute bottom-[80px] left-1/2 -translate-x-1/2 w-[100vw] max-w-[1920px] px-8 z-10 pointer-events-none">
+          <div className="w-full translate-y-[18%] flex items-end justify-start">
             <Image
               src="/images/one.png"
               alt="ONE"

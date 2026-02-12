@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useCallback } from 'react';
-import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui';
@@ -26,33 +25,42 @@ export const RulesSection: React.FC<RulesSectionProps> = ({ className }) => {
 
   return (
     <>
+      <style>{`
+        .rules-section-bg {
+          background-image: url(/images/mobile-rules.png);
+          height: 276px;
+        }
+        @media (min-width: 768px) {
+          .rules-section-bg {
+            background-image: url(/images/tablet-rules.png);
+            height: 341px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .rules-section-bg {
+            background-image: url(/images/rules.png);
+            height: 397px;
+          }
+        }
+      `}</style>
       <section
         id="rules"
-        className={cn('relative py-40 w-full', className)}
+        className={cn('relative py-12 md:py-20 lg:py-40 w-full', className)}
       >
-        <div className="relative w-full mx-auto aspect-[1640/415] ">
-          <Image
-            src="/images/rules.png"
-            alt=""
-            fill
-            sizes="(min-width: 1640px) 1640px, 100vw"
-            className="object-cover object-center pointer-events-none select-none"
-            aria-hidden="true"
-          />
-
-          <div className="flex absolute inset-0 z-10 justify-center items-center px-4">
-            <div className="flex flex-col gap-6 items-center text-center">
-              <span className="text-xl font-semibold uppercase text-primary-pink font-nkduy">
+        <div className="relative w-full mx-auto bg-cover bg-center bg-no-repeat rules-section-bg">
+          <div className="flex absolute inset-0 z-10 justify-center items-center px-4 md:px-10 lg:px-16 py-8 md:py-14 lg:py-20">
+            <div className="flex flex-col gap-8 md:gap-10 lg:gap-10 items-center text-center w-full max-w-[900px]">
+              <span className="text-sm md:text-base lg:text-xl font-semibold tracking-widest uppercase text-primary-pink font-nkduy">
                 {t('rulesSection.label')}
               </span>
 
-              <h3 className="text-white text-4xl font-[900] uppercase max-w-[900px]">
+              <h3 className="text-white text-xl md:text-3xl lg:text-4xl font-[900] uppercase leading-[1.1] md:leading-[1.1] lg:leading-[1.1] px-2 md:px-10 lg:px-0">
                 {t('rulesSection.headline')}
               </h3>
 
               <Button
                 variant="primary"
-                className="px-6 py-3 mt-4 font-semibold"
+                className="px-6 py-3 md:px-8 md:py-4 lg:px-6 lg:py-3 mt-0 md:mt-0 lg:mt-4 text-sm md:text-base lg:text-base font-semibold w-full md:w-auto"
                 onClick={openModal}
               >
                 {t('rulesSection.button')}

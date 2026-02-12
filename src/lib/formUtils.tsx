@@ -3,10 +3,10 @@ import { z } from 'zod';
 
 /* ── Shared input classes matching UI kit ── */
 export const inputClass =
-  'rounded-none border border-divider bg-dark-gray px-4 py-3 text-base text-white placeholder:text-secondary-gray transition-all duration-200 hover:border-primary-pink focus:border-primary-pink focus:outline-none focus:ring-0';
+  'rounded-none border border-divider bg-dark-gray px-4 py-3 text-sm md:text-base text-white placeholder:text-secondary-gray transition-all duration-200 hover:border-primary-pink focus:border-primary-pink focus:outline-none focus:ring-0';
 
 export const textareaClass =
-  'w-full rounded-none border border-divider bg-dark-gray px-4 py-3 text-base font-body text-white placeholder:text-secondary-gray transition-all duration-200 hover:border-primary-pink focus:border-primary-pink focus:outline-none focus:ring-0 resize-none';
+  'w-full rounded-none border border-divider bg-dark-gray px-4 py-3 text-sm md:text-base font-body text-white placeholder:text-secondary-gray transition-all duration-200 hover:border-primary-pink focus:border-primary-pink focus:outline-none focus:ring-0 resize-none';
 
 /* ── Security helpers ── */
 
@@ -151,11 +151,11 @@ export const SectionHeader: React.FC<{ label: string; number: string }> = ({
   label,
   number,
 }) => (
-  <div className="flex justify-between items-center mb-6">
-    <span className="text-xl font-semibold uppercase text-primary-pink font-nkduy">
+  <div className="flex justify-between items-center mb-4 md:mb-5 lg:mb-6">
+    <span className="text-base md:text-lg lg:text-xl font-semibold uppercase text-primary-pink font-nkduy">
       {label}
     </span>
-    <span className="font-semibold uppercase text-primary-pink font-nkduy">
+    <span className="text-sm md:text-base font-semibold uppercase text-primary-pink font-nkduy">
       [ &nbsp;{number}&nbsp; ]
     </span>
   </div>

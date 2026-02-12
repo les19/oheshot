@@ -37,7 +37,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
       {/* Navigation Panel — mirrors Header structure */}
       <div className="max-w-[1640px] mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex flex-col gap-1 items-center">
+        <div className="flex flex-col gap-1 items-center ">
           <Image
             src="/icons/logoW.svg"
             alt="ONESHOT Logo"
@@ -49,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
         </div>
 
         {/* Navigation Links */}
-        <nav className="hidden gap-8 items-center lg:flex">
+        <nav className="hidden md:flex gap-8 items-center">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -81,6 +81,18 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
           ))}
         </div>
       </div>
+      {/* Navigation Links */}
+      <nav className="flex gap-8 items-center md:hidden  px-4  mx-auto justify-between my-4">
+        {navLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="font-semibold transition-colors text-header-gray hover:text-primary-pink-hover active:text-primary-pink-active"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </nav>
 
       <div className="overflow-hidden relative mt-10 w-full">
         {/* ONESHOT text SVG */}

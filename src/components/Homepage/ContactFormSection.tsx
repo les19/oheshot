@@ -68,17 +68,17 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
       )}
     >
       {/* Cube decorations */}
-      <div className="absolute top-[15%] right-[5%] w-full max-w-[636px] h-full pointer-events-none select-none z-0">
+      <div className="absolute top-[15%] right-[5%] w-full max-w-[400px] md:max-w-[636px] h-full pointer-events-none select-none z-0">
         <Image
           src="/images/cube2.svg"
           alt=""
           width={636}
           height={636}
-          className="absolute -top-[5%] -right-[10%] w-full h-auto opacity-80"
+          className="absolute top-0 md:-top-[5%] -right-[10%] w-full h-auto opacity-80"
           aria-hidden="true"
         />
       </div>
-      <div className="absolute bottom-[17%] left-[5%] w-full max-w-[678px] h-full pointer-events-none select-none z-0">
+      <div className="absolute bottom-[17%] left-[5%] w-full max-w-[300px] md:max-w-[678px] h-full pointer-events-none select-none z-0">
         <Image
           src="/images/cube1.svg"
           alt=""
@@ -90,25 +90,25 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-[1640px] mx-auto px-4 py-24 lg:py-32">
+      <div className="relative z-10 w-full max-w-[1640px] mx-auto px-4 py-12 md:py-16 lg:py-32">
         {/* Header */}
-        <div className="flex flex-col gap-4 items-center mb-12 text-center">
-          <span className="text-xl font-semibold uppercase text-primary-pink font-nkduy">
+        <div className="flex flex-col gap-4 md:gap-4 lg:gap-4 items-center mb-8 md:mb-10 lg:mb-12 text-center">
+          <span className="text-base lg:text-xl font-semibold uppercase text-primary-pink font-nkduy">
             {t('contactForm.label')}
           </span>
-          <h3 className="text-white text-3xl md:text-5xl font-[900]  uppercase ">
+          <h3 className="text-white text-[28px] md:text-3xl lg:text-5xl font-[900] uppercase leading-[1.1] md:leading-[1.1] lg:leading-[1.1] px-2 md:px-0">
             {t('contactForm.headline')}
           </h3>
         </div>
 
         {/* Toggle tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="flex overflow-hidden p-1 border border-divider border-[#232323]">
+        <div className="flex justify-center mb-8 md:mb-10 lg:mb-12">
+          <div className="flex overflow-hidden p-2 border border-divider border-[#232323]">
             <button
               type="button"
               onClick={() => setActiveTab('participants')}
               className={cn(
-                'px-8 py-3  font-semibold uppercase transition-all duration-200',
+                'px-4 py-3 md:px-6 md:py-3 lg:px-8 lg:py-3 text-base font-semibold uppercase transition-all duration-200',
                 activeTab === 'participants'
                   ? 'bg-primary-pink text-white'
                   : 'bg-transparent text-white hover:text-primary-pink',
@@ -120,7 +120,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
               type="button"
               onClick={() => setActiveTab('sponsors')}
               className={cn(
-                'px-8 py-3 font-semibold uppercase transition-all duration-200',
+                'px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-3 text-sm md:text-base font-semibold uppercase transition-all duration-200',
                 activeTab === 'sponsors'
                   ? 'bg-primary-pink text-white'
                   : 'bg-transparent text-white hover:text-primary-pink',
@@ -132,7 +132,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
         </div>
 
         {/* Form card */}
-        <div className="relative max-w-[1640px] mx-auto bg-secondary-dark/70 backdrop-blur-sm px-8 py-10 lg:px-12 lg:py-20">
+        <div className="relative max-w-[1640px] mx-auto bg-secondary-dark/70 backdrop-blur-sm px-4 py-6 md:px-6 md:py-8 lg:px-12 lg:py-20">
           <form onSubmit={handleSubmit} noValidate autoComplete="off" className='max-w-[980px] mx-auto'>
             {activeTab === 'participants' ? (
               <ParticipantsForm ref={participantsRef} />
@@ -145,7 +145,7 @@ export const ContactFormSection: React.FC<ContactFormSectionProps> = ({
               type="submit"
               variant="primary"
               isLoading={isSubmitting}
-              className="py-4 w-full text-sm font-semibold uppercase"
+              className="py-3 md:py-4 w-full text-sm md:text-base font-semibold uppercase"
             >
               {t('contactForm.submit')}
             </Button>

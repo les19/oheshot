@@ -90,7 +90,7 @@ export const ParticipantsForm = forwardRef<ParticipantsFormHandle>(
           label={t('contactForm.participant.section1')}
           number="01"
         />
-        <div className="grid grid-cols-1 gap-y-4 gap-x-8 mb-8 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-y-4 gap-x-8 mb-6 md:mb-8 lg:mb-8 md:grid-cols-2">
           <Input
             placeholder={t('contactForm.participant.name')}
             maxLength={100}
@@ -121,7 +121,7 @@ export const ParticipantsForm = forwardRef<ParticipantsFormHandle>(
             className={inputClass}
           />
         </div>
-        <div className="mb-10">
+        <div className="mb-6 md:mb-8 lg:mb-10">
           <Input
             placeholder={t('contactForm.participant.social')}
             maxLength={300}
@@ -135,7 +135,7 @@ export const ParticipantsForm = forwardRef<ParticipantsFormHandle>(
           label={t('contactForm.participant.section2')}
           number="02"
         />
-        <div className="grid grid-cols-1 gap-y-0 gap-x-8 mb-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-y-4 gap-x-8 mb-4 md:mb-4 lg:mb-4 md:grid-cols-2">
           <Input
             placeholder={t('contactForm.participant.height')}
             maxLength={4}
@@ -151,7 +151,7 @@ export const ParticipantsForm = forwardRef<ParticipantsFormHandle>(
             className={inputClass}
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-4 md:mb-4 lg:mb-4">
           <Input
             placeholder={t('contactForm.participant.skills')}
             maxLength={500}
@@ -160,7 +160,7 @@ export const ParticipantsForm = forwardRef<ParticipantsFormHandle>(
             className={inputClass}
           />
         </div>
-        <div className="mb-10">
+        <div className="mb-6 md:mb-8 lg:mb-10">
           <div className="relative pb-5 w-full">
             <textarea
               placeholder={t('contactForm.participant.about')}
@@ -187,7 +187,7 @@ export const ParticipantsForm = forwardRef<ParticipantsFormHandle>(
           label={t('contactForm.participant.section3')}
           number="03"
         />
-        <div className="grid grid-cols-1 gap-y-4 gap-x-8 mb-10 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-y-4 gap-x-8 mb-6 md:mb-8 lg:mb-10 md:grid-cols-2">
           <FileUpload
             placeholder={t('contactForm.participant.resume')}
             onFileSelect={(file) => setValue('resume', file, { shouldValidate: true })}

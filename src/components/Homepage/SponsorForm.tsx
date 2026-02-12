@@ -72,7 +72,7 @@ export const SponsorForm = forwardRef<SponsorFormHandle>((_, ref) => {
         label={t('contactForm.sponsor.section1')}
         number="01"
       />
-      <div className="mb-4">
+      <div className="mb-4 md:mb-4 lg:mb-4">
         <Input
           placeholder={t('contactForm.sponsor.company')}
           maxLength={200}
@@ -81,7 +81,7 @@ export const SponsorForm = forwardRef<SponsorFormHandle>((_, ref) => {
           className={inputClass}
         />
       </div>
-      <div className="grid grid-cols-1 gap-y-0 gap-x-8 mb-4 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-y-4 gap-x-8 mb-4 md:mb-4 lg:mb-4 md:grid-cols-2">
         <Input
           placeholder={t('contactForm.sponsor.phone')}
           maxLength={20}
@@ -98,7 +98,7 @@ export const SponsorForm = forwardRef<SponsorFormHandle>((_, ref) => {
           className={inputClass}
         />
       </div>
-      <div className="mb-10">
+      <div className="mb-6 md:mb-8 lg:mb-10">
         <div className="relative w-full pb-5">
           <textarea
             placeholder={t('contactForm.sponsor.description')}

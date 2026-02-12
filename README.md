@@ -34,3 +34,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## env example
+
+```bash
+NEXT_PUBLIC_FORM_WEBHOOK_URL=https://webhook.site/90206661-ae35-4ea5-b0e7-db806bdc82ba
+NEXT_PUBLIC_INSTAGRAM_URL=https://www.instagram.com/oneshot.official/
+NEXT_PUBLIC_TELEGRAM_URL=https://t.me/oneshot_official
+NEXT_PUBLIC_EMAIL_URL=mailto:info@oneshot.com
+```

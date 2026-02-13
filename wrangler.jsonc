@@ -4,10 +4,20 @@
     "name": "oneshot-app",
     "env": {
         "dev": {
-            "route": "dev.oneshot.kiev.ua"
+            "routes": [
+                {
+                    "pattern": "dev.oneshot.kiev.ua",
+                    "custom_domain": true
+                }
+            ]
         },
         "prod": {
-            "route": "oneshot.kiev.ua"
+            "routes": [
+                {
+                    "pattern": "oneshot.kiev.ua",
+                    "custom_domain": true
+                }
+            ]
         }
     },
     "compatibility_date": "2026-02-12",

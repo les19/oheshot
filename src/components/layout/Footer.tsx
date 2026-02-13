@@ -39,7 +39,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
         {/* Logo */}
         <div className="flex flex-col gap-1 items-center ">
           <Image
-            src="/icons/logoW.svg"
+            src="/icons/logo_w.svg"
             alt="ONESHOT Logo"
             width={37}
             height={38}

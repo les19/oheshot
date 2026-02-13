@@ -82,7 +82,7 @@ export const MobileSidebar: React.FC<MobileSidebarProps> = ({ isOpen, onClose })
         <div className="flex items-center justify-between p-4 backdrop-blur-[8px] bg-black/80">
           <div className="flex flex-col items-center gap-0.5">
             <Image
-              src="/icons/logoW.svg"
+              src="/icons/logo_w.svg"
               alt="ONESHOT Logo"
               width={30}
               height={30}

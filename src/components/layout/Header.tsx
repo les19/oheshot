@@ -43,7 +43,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
         {/* Logo */}
         <div className="flex flex-col items-center gap-1 ">
           <Image
-            src="/icons/logoW.svg"
+            src="/icons/logo_w.svg"
             alt="ONESHOT Logo"
             width={37}
             height={38}

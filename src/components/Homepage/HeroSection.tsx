@@ -84,7 +84,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             {/* Icons — tablet only */}
             <div className="hidden md:flex gap-3 items-center">
               <Image
-                src="/icons/logoP.svg"
+                src="/icons/logo_p.svg"
                 alt="Logo icon"
                 width={23}
                 height={23}
@@ -160,7 +160,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             {/* Icons */}
             <div className="flex gap-4 items-center">
               <Image
-                src="/icons/logoP.svg"
+                src="/icons/logo_p.svg"
                 alt="Cross icon"
                 width={23}
                 height={23}

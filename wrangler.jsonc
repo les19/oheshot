@@ -5,6 +5,9 @@
     "env": {
         "dev": {
             "route": "dev.oneshot.kiev.ua"
+        },
+        "prod": {
+            "route": "oneshot.kiev.ua"
         }
     },
     "compatibility_date": "2026-02-12",

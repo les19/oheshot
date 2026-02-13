@@ -1,16 +1,16 @@
 name: Deploy Worker
 
-# on:
-#   push:
-#     branches:
-#       - main
-
 on:
   workflow_call:
     inputs:
       environment:
         required: true
         type: string
+    secrets:
+      CLOUDFLARE_API_TOKEN:
+        required: true
+      CLOUDFLARE_ACCOUNT_ID:
+        required: true
 
 jobs:
   deploy:
@@ -18,9 +18,30 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-      - name: Build & Deploy Worker
+
+      # 1. Setup Node to allow installation
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      # 2. Install dependencies (ensures you get Wrangler v4 and OpenNext)
+      - name: Install Dependencies
+        run: npm ci
+
+      # 3. Build the application specifically for Cloudflare
+      # This generates the .open-next/worker.js file referenced in your wrangler.jsonc
+      - name: Build OpenNextJS
+        run: npx opennextjs-cloudflare build
+
+      # 4. Deploy using the artifacts generated above
+      - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
-          environment: ${{ inputs.environment }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          environment: ${{ inputs.environment }}
+          # Force it to use the locally installed wrangler (v4)
+          # explicit command ensures it picks up the flags correctly
+          command: deploy --env ${{ inputs.environment }}

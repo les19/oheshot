@@ -1,0 +1,31 @@
+{
+    "$schema": "./node_modules/wrangler/config-schema.json",
+    "main": ".open-next/worker.js",
+    "name": "oneshot-app",
+    "env": {
+        "dev": {
+            "routes": [
+                {
+                    "pattern": "dev.oneshot.kiev.ua",
+                    "custom_domain": true
+                }
+            ]
+        },
+        "prod": {
+            "routes": [
+                {
+                    "pattern": "oneshot.kiev.ua",
+                    "custom_domain": true
+                }
+            ]
+        }
+    },
+    "compatibility_date": "2026-02-12",
+    "compatibility_flags": [
+        "nodejs_compat"
+    ],
+    "assets": {
+        "directory": ".open-next/assets",
+        "binding": "ASSETS"
+    }
+}

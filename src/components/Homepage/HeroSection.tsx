@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { MoveDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
-import { HeroCoin3D } from './HeroCoin3D';
+import { HeroLogoVideo } from './HeroLogoVideo';
 
 interface HeroSectionProps {
   className?: string;
@@ -50,11 +50,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             </div>
           </div>
 
-          {/* Center Graphic */}
+          {/* Center Graphic - lazy-loaded video */}
           <div className="relative w-full flex justify-center mt-4 md:mt-10">
-            <HeroCoin3D
+            <HeroLogoVideo
               size="tablet"
-              className="relative z-10 w-[300px] h-[300px] md:w-[530px] md:h-[530px]"
+              className="relative w-[300px] h-[300px] md:w-[530px] md:h-[530px]"
             />
             {/* Ellipse blur glow */}
             <div
@@ -124,14 +124,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             </div>
           </div>
 
-          {/* Center Column - Graphic */}
+          {/* Center Column - Graphic (lazy-loaded video) */}
           <div className="relative w-full z-1">
-            <HeroCoin3D
+            <HeroLogoVideo
               size="desktop"
               className="w-full h-auto"
             />
             <div
-              className="z-10 absolute top-[323.99px] left-1/2 w-full max-w-[953.08px] aspect-[953/272] -translate-x-1/2 rotate-[351.5deg] rounded-full"
+              className="absolute top-[323.99px] left-1/2 w-full max-w-[953.08px] aspect-[953/272] -translate-x-1/2 rotate-[351.5deg] rounded-full"
               style={{
                 background: 'linear-gradient(to right, #E7E0E0 0%, #E0A9AD 0%, #DD004D, #000000)',
                 filter: 'blur(250px)',

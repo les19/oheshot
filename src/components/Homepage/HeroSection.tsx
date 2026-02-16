@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { MoveDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
+import { HeroCoin3D } from './HeroCoin3D';
 
 interface HeroSectionProps {
   className?: string;
@@ -51,13 +52,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
 
           {/* Center Graphic */}
           <div className="relative w-full flex justify-center mt-4 md:mt-10">
-            <Image
-              src="/images/hero-icon.svg"
-              alt="Hero Icon"
-              width={530}
-              height={530}
-              className="w-[300px] h-[300px] md:w-[530px] md:h-[530px] relative z-10"
-              priority
+            <HeroCoin3D
+              size="tablet"
+              className="relative z-10 w-[300px] h-[300px] md:w-[530px] md:h-[530px]"
             />
             {/* Ellipse blur glow */}
             <div
@@ -129,13 +126,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
 
           {/* Center Column - Graphic */}
           <div className="relative w-full z-1">
-            <Image
-              src="/images/hero-icon.svg"
-              alt="Hero Icon"
-              width={600}
-              height={600}
+            <HeroCoin3D
+              size="desktop"
               className="w-full h-auto"
-              priority
             />
             <div
               className="z-10 absolute top-[323.99px] left-1/2 w-full max-w-[953.08px] aspect-[953/272] -translate-x-1/2 rotate-[351.5deg] rounded-full"

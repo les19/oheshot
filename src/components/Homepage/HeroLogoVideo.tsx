@@ -41,7 +41,7 @@ export const HeroLogoVideo: React.FC<HeroLogoVideoProps> = ({ className, size = 
   const sizeClasses = {
     mobile: 'w-[300px] h-[300px]',
     tablet: 'w-[300px] h-[300px] md:w-[530px] md:h-[530px]',
-    desktop: 'w-full max-w-[600px] aspect-square',
+    desktop: 'w-full max-w-[854px] aspect-square',
   };
 
   return (
@@ -59,7 +59,7 @@ export const HeroLogoVideo: React.FC<HeroLogoVideoProps> = ({ className, size = 
           autoPlay
           className="w-full h-full object-contain"
           aria-label="Logo animation"
-          onLoadedData={(e) => e.currentTarget.play().catch(() => {})}
+          onLoadedData={(e) => e.currentTarget.play().catch(() => { })}
         />
       ) : (
         <div className="w-full h-full bg-black/20 animate-pulse rounded-full" aria-hidden />

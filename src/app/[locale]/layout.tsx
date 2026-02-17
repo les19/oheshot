@@ -110,8 +110,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${robotoFlex.variable} antialiased`}
-        // Temporarily removed nkduyMono.variable for Safari compatibility testing
+        className={`${robotoFlex.variable} ${nkduyMono.variable} antialiased`}
       >
         <script
           type="application/ld+json"

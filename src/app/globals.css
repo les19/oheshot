@@ -11,8 +11,7 @@
   font-display: swap;
 }
 
-/* Temporarily commented out for Safari compatibility testing */
-/* @font-face {
+@font-face {
   font-family: "NKDuy Mono";
   src:
     url("/fonts/nkduy/NKDuyMono-SemiBold.woff2") format("woff2"),
@@ -20,7 +19,7 @@
   font-weight: 600;
   font-style: normal;
   font-display: swap;
-} */
+}
 
 :root {
   /* UI Kit Color Palette */
@@ -48,8 +47,7 @@
 
   /* Font families */
   --font-roboto: "Roboto Flex", sans-serif;
-  /* Temporarily using system monospace font for Safari compatibility testing */
-  --font-nkduy: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --font-nkduy: "NKDuy Mono", monospace;
 }
 
 @theme inline {

@@ -56,11 +56,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               size="tablet"
               className="relative w-[300px] h-[300px] md:w-[530px] md:h-[530px]"
             />
-            {/* Ellipse blur glow */}
-            <div
-              className="z-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-8.5deg] rounded-full w-[130%] md:w-[90%] max-w-[683px] aspect-[393/201] md:aspect-[683/228] blur-[170px] md:blur-[200px]"
+            <Image
+              src="/images/Ellipse.svg"
+              alt="Ellipse background"
+              width={953}
+              height={272}
+              className="absolute md:top-[200px] top-[20px] left-1/2 -translate-x-1/2 z-0 scale-250 md:scale-300"
               style={{
-                background: 'linear-gradient(to right, #E7E0E0 0%, #E0A9AD 0%, #DD004D, #000000)',
+                width: '953.08px',
+                height: '272.23px',
               }}
             />
           </div>
@@ -130,12 +134,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               size="desktop"
               className="w-full h-auto"
             />
-            <div
-              className="absolute top-[323.99px] left-1/2 w-full max-w-[953.08px] aspect-[953/272] -translate-x-1/2 rotate-[351.5deg] rounded-full"
-              style={{
-                background: 'linear-gradient(to right, #E7E0E0 0%, #E0A9AD 0%, #DD004D, #000000)',
-                filter: 'blur(250px)',
-              }}
+            <Image
+              src="/images/Ellipse.svg"
+              alt=""
+              width={953}
+              height={272}
+              className="absolute top-[323.99px] left-1/2 w-full max-w-[953.08px] aspect-[953/272] -translate-x-1/2 z-0 object-fill scale-300 xl:scale-350"
             />
           </div>
 

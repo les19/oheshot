@@ -125,8 +125,8 @@ export const MobileSidebar: React.FC<MobileSidebarProps> = ({ isOpen, onClose })
             >
               UA
             </IntlLink>
-            {/* <span className="text-[#3d3d3d]">/</span> */}
-            {/* <IntlLink
+            <span className="text-[#3d3d3d]">/</span>
+            <IntlLink
               href={pathname}
               locale="en"
               onClick={onClose}
@@ -136,7 +136,7 @@ export const MobileSidebar: React.FC<MobileSidebarProps> = ({ isOpen, onClose })
               )}
             >
               EN
-            </IntlLink> */}
+            </IntlLink>
           </div>
         </nav>
 

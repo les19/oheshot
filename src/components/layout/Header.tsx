@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link as IntlLink, usePathname } from '@/i18n/navigation';
-import { routing } from '@/i18n/routing';
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui';
 import { MobileSidebar } from './MobileSidebar';
@@ -82,8 +81,8 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
             >
               UA
             </IntlLink>
-            {/* <span className="font-normal">/</span> */}
-            {/* <IntlLink
+            <span className="font-normal">/</span>
+            <IntlLink
               href={pathname}
               locale="en"
               className={cn(
@@ -94,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
               )}
             >
               EN
-            </IntlLink> */}
+            </IntlLink>
           </div>
 
           {/* CTA Button */}

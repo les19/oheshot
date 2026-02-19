@@ -1,27 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-const WEBHOOK_URL = process.env.NEXT_PUBLIC_FORM_WEBHOOK_URL ?? '';
+import { sendFormEmail } from '@/actions/sendEmail';
 
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
 
-    const res = await fetch(WEBHOOK_URL, {
-      method: 'POST',
-      body: formData,
-    });
+    // Send email via nodemailer
+    const emailResult = await sendFormEmail(formData);
 
-    if (!res.ok) {
+    if (!emailResult.success) {
       return NextResponse.json(
-        { error: 'Webhook returned an error' },
-        { status: res.status },
+        { error: emailResult.error || 'Failed to send email' },
+        { status: 500 },
       );
     }
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (error) {
+    console.error('Error processing form submission:', error);
     return NextResponse.json(
-      { error: 'Failed to forward form data' },
+      { error: 'Failed to process form submission' },
       { status: 500 },
     );
   }

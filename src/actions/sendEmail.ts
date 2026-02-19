@@ -2,16 +2,6 @@
 
 import nodemailer from 'nodemailer';
 
-interface EmailConfig {
-  host: string;
-  port: number;
-  secure: boolean;
-  auth: {
-    user: string;
-    password: string;
-  };
-}
-
 interface EmailResult {
   success: boolean;
   error?: string;
@@ -19,120 +9,117 @@ interface EmailResult {
 
 /**
  * Server Action для отправки email через SMTP
- * Принимает FormData с данными формы и отправляет email
+ * Принимает FormData с данными формы и отправляет plain text email
  */
 export async function sendFormEmail(formData: FormData): Promise<EmailResult> {
   try {
     // Получаем конфигурацию SMTP из переменных окружения
-    const smtpConfig: EmailConfig = {
-      host: process.env.SMTP_HOST || '',
-      port: parseInt(process.env.SMTP_PORT || '587', 10),
-      secure: process.env.SMTP_SECURE === 'true', // true для порта 465, false для других
-      auth: {
-        user: process.env.SMTP_USER || '',
-        password: process.env.SMTP_PASSWORD || '',
-      },
-    };
+    const smtpHost = process.env.SMTP_HOST;
+    const smtpUser = process.env.SMTP_USER;
+    const smtpPassword = process.env.SMTP_PASSWORD;
+    const sendTo = process.env.SMTP_SEND_TO;
 
     // Проверяем наличие обязательных переменных
-    if (!smtpConfig.host || !smtpConfig.auth.user || !smtpConfig.auth.password) {
+    if (!smtpHost || !smtpUser || !smtpPassword || !sendTo) {
       return {
         success: false,
         error: 'SMTP configuration is missing. Please check environment variables.',
       };
     }
 
-    // Получаем email получателя из переменных окружения
-    const recipientEmail = process.env.SMTP_RECIPIENT_EMAIL || process.env.SMTP_USER || '';
-
-    if (!recipientEmail) {
-      return {
-        success: false,
-        error: 'Recipient email is not configured.',
-      };
-    }
-
     // Создаем транспортер для отправки email
-    const transporter = nodemailer.createTransport(smtpConfig);
+    const transporter = nodemailer.createTransport({
+      host: smtpHost,
+      port: 587,
+      secure: false, // true для порта 465, false для других
+      auth: {
+        user: smtpUser,
+        pass: smtpPassword,
+      },
+    });
 
     // Получаем тип формы
     const formType = formData.get('formType') as string;
 
-    // Формируем содержимое email в зависимости от типа формы
-    let subject = '';
-    let htmlContent = '';
+    // Обрабатываем файлы для вложений
     const attachments: Array<{
       filename: string;
       content: Buffer;
       contentType?: string;
     }> = [];
 
-    if (formType === 'participants') {
-      subject = 'Новая заявка участника - One Shot';
-      htmlContent = `
-        <h2>Новая заявка участника</h2>
-        <h3>Контактная информация:</h3>
-        <p><strong>Имя:</strong> ${escapeHtml(formData.get('name') as string || '')}</p>
-        <p><strong>Местоположение:</strong> ${escapeHtml(formData.get('location') as string || '')}</p>
-        <p><strong>Телефон:</strong> ${escapeHtml(formData.get('phone') as string || '')}</p>
-        <p><strong>Email:</strong> ${escapeHtml(formData.get('email') as string || '')}</p>
-        <p><strong>Социальные сети:</strong> ${escapeHtml(formData.get('social') as string || 'Не указано')}</p>
-        
-        <h3>Личная информация:</h3>
-        <p><strong>Рост:</strong> ${escapeHtml(formData.get('height') as string || '')} см</p>
-        <p><strong>Вес:</strong> ${escapeHtml(formData.get('weight') as string || '')} кг</p>
-        <p><strong>Навыки и достижения:</strong></p>
-        <p>${escapeHtml(formData.get('skills') as string || '').replace(/\n/g, '<br>')}</p>
-        <p><strong>О себе:</strong></p>
-        <p>${escapeHtml(formData.get('about') as string || '').replace(/\n/g, '<br>')}</p>
-      `;
+    // Получаем файлы из FormData и конвертируем в буферы
+    const resumeFile = formData.get('resume') as File | null;
+    const medicalFile = formData.get('medical') as File | null;
 
-      // Обрабатываем файлы резюме и медицинской справки
-      const resumeFile = formData.get('resume') as File | null;
-      const medicalFile = formData.get('medical') as File | null;
-
-      if (resumeFile && resumeFile.size > 0) {
-        const buffer = Buffer.from(await resumeFile.arrayBuffer());
-        attachments.push({
-          filename: resumeFile.name || 'resume.pdf',
-          content: buffer,
-          contentType: resumeFile.type || 'application/pdf',
-        });
-      }
-
-      if (medicalFile && medicalFile.size > 0) {
-        const buffer = Buffer.from(await medicalFile.arrayBuffer());
-        attachments.push({
-          filename: medicalFile.name || 'medical.pdf',
-          content: buffer,
-          contentType: medicalFile.type || 'application/pdf',
-        });
-      }
-    } else if (formType === 'sponsors') {
-      subject = 'Новая заявка спонсора - One Shot';
-      htmlContent = `
-        <h2>Новая заявка спонсора</h2>
-        <h3>Контактная информация:</h3>
-        <p><strong>Название компании:</strong> ${escapeHtml(formData.get('company') as string || '')}</p>
-        <p><strong>Телефон:</strong> ${escapeHtml(formData.get('phone') as string || '')}</p>
-        <p><strong>Email:</strong> ${escapeHtml(formData.get('email') as string || '')}</p>
-        
-        <h3>Описание предложения:</h3>
-        <p>${escapeHtml(formData.get('description') as string || '').replace(/\n/g, '<br>')}</p>
-      `;
-    } else {
-      return {
-        success: false,
-        error: 'Invalid form type.',
-      };
+    if (resumeFile && resumeFile.size > 0) {
+      const buffer = Buffer.from(await resumeFile.arrayBuffer());
+      attachments.push({
+        filename: resumeFile.name || 'resume.pdf',
+        content: buffer,
+        contentType: resumeFile.type || 'application/pdf',
+      });
     }
 
-    // Отправляем email
-    const info = await transporter.sendMail({
-      from: `"One Shot Form" <${smtpConfig.auth.user}>`,
-      to: recipientEmail,
-      subject: subject,
-      html: htmlContent,
+    if (medicalFile && medicalFile.size > 0) {
+      const buffer = Buffer.from(await medicalFile.arrayBuffer());
+      attachments.push({
+        filename: medicalFile.name || 'medical.pdf',
+        content: buffer,
+        contentType: medicalFile.type || 'application/pdf',
+      });
+    }
+
+    // Формируем plain text содержимое email
+    let textContent = '';
+
+    if (formType === 'participants') {
+      textContent = `Form Type: Participants
+
+Contact Information:
+Name: ${formData.get('name') || ''}
+Location: ${formData.get('location') || ''}
+Phone: ${formData.get('phone') || ''}
+Email: ${formData.get('email') || ''}
+Social: ${formData.get('social') || 'Not provided'}
+
+Personal Information:
+Height: ${formData.get('height') || ''} cm
+Weight: ${formData.get('weight') || ''} kg
+Skills: ${formData.get('skills') || ''}
+About: ${formData.get('about') || ''}
+
+Files:
+Resume: ${resumeFile && resumeFile.size > 0 ? `Attached (${resumeFile.name})` : 'Not provided'}
+Medical Certificate: ${medicalFile && medicalFile.size > 0 ? `Attached (${medicalFile.name})` : 'Not provided'}`;
+    } else if (formType === 'sponsors') {
+      textContent = `Form Type: Sponsors
+
+Contact Information:
+Company: ${formData.get('company') || ''}
+Phone: ${formData.get('phone') || ''}
+Email: ${formData.get('email') || ''}
+
+Description:
+${formData.get('description') || ''}`;
+    } else {
+      // Generic form - include all fields
+      textContent = 'Form Fields:\n';
+      for (const [key, value] of formData.entries()) {
+        if (value instanceof File) {
+          textContent += `${key}: ${value.name} (${value.size} bytes)\n`;
+        } else {
+          textContent += `${key}: ${value}\n`;
+        }
+      }
+    }
+
+    // Отправляем email с вложениями
+    await transporter.sendMail({
+      from: `"One Shot Form" <${smtpUser}>`,
+      to: sendTo,
+      subject: 'Form filled',
+      text: textContent,
       attachments: attachments.length > 0 ? attachments : undefined,
     });
 
@@ -146,18 +133,4 @@ export async function sendFormEmail(formData: FormData): Promise<EmailResult> {
       error: error instanceof Error ? error.message : 'Failed to send email',
     };
   }
-}
-
-/**
- * Экранирует HTML символы для безопасности
- */
-function escapeHtml(text: string): string {
-  const map: Record<string, string> = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;',
-  };
-  return text.replace(/[&<>"']/g, (m) => map[m]);
 }

@@ -4,7 +4,7 @@ import React, { useImperativeHandle, forwardRef, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
-import { Input, FileUpload } from '@/components/ui';
+import { Input, PhoneInput, FileUpload } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import {
   SectionHeader,
@@ -105,7 +105,7 @@ export const ParticipantsForm = forwardRef<ParticipantsFormHandle>(
             error={errors.location?.message}
             className={inputClass}
           />
-          <Input
+          <PhoneInput
             placeholder={t('contactForm.participant.phone')}
             maxLength={20}
             {...register('phone')}

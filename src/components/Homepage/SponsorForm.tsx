@@ -4,7 +4,7 @@ import React, { useImperativeHandle, forwardRef, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
-import { Input } from '@/components/ui';
+import { Input, PhoneInput } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import {
   SectionHeader,
@@ -82,7 +82,7 @@ export const SponsorForm = forwardRef<SponsorFormHandle>((_, ref) => {
         />
       </div>
       <div className="grid grid-cols-1 gap-y-4 gap-x-8 mb-4 md:mb-4 lg:mb-4 md:grid-cols-2">
-        <Input
+        <PhoneInput
           placeholder={t('contactForm.sponsor.phone')}
           maxLength={20}
           {...register('phone')}

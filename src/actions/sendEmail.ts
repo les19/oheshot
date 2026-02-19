@@ -27,6 +27,16 @@ export async function sendFormEmail(formData: FormData): Promise<EmailResult> {
       };
     }
 
+    // Разделяем получателей по запятой и очищаем пробелы
+    const recipients = sendTo.split(',').map(email => email.trim()).filter(email => email.length > 0);
+
+    if (recipients.length === 0) {
+      return {
+        success: false,
+        error: 'No valid recipients found in SMTP_SEND_TO.',
+      };
+    }
+
     // Создаем транспортер для отправки email
     const transporter = nodemailer.createTransport({
       host: smtpHost,
@@ -114,14 +124,19 @@ ${formData.get('description') || ''}`;
       }
     }
 
-    // Отправляем email с вложениями
-    await transporter.sendMail({
-      from: `"One Shot Form" <${smtpUser}>`,
-      to: sendTo,
-      subject: 'Form filled',
-      text: textContent,
-      attachments: attachments.length > 0 ? attachments : undefined,
-    });
+    // Отправляем отдельное письмо каждому получателю
+    const sendPromises = recipients.map(recipient =>
+      transporter.sendMail({
+        from: `"One Shot Form" <${smtpUser}>`,
+        to: recipient,
+        subject: 'Form filled',
+        text: textContent,
+        attachments: attachments.length > 0 ? attachments : undefined,
+      })
+    );
+
+    // Ждем отправки всех писем
+    await Promise.all(sendPromises);
 
     return {
       success: true,
